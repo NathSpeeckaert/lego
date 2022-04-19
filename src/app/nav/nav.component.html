@@ -1,0 +1,27 @@
+
+<!-- <nav>
+    <ul class="nav flex-column">
+      <li *ngFor="let link of links; let i = index" class="nav-item">
+        <a (click)="toggleChildren(i)" class="nav-link active" [ngClass]="{'bg-primary': link.isVisible}" routerLink="{{link.url}}">{{link.title}}</a>
+        <ul *ngIf="link.isVisible && link.children" class="nav submenu">
+          <li *ngFor="let child of link.children" class="nav-item">
+            <a class="nav-link active" routerLink="{{child.url}}"><span>{{child.title}}</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav> -->
+
+  <nav>
+      <ul class="nav flex-column">
+          <li class="nav-item">
+              <a routerLink="/" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/set" class="nav-link">Sets</a>
+        </li>
+
+      </ul>
+
+
+  </nav>

@@ -9,15 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./set.component.scss']
 })
 export class SetComponent implements OnInit {
-
-  setList: ISet[] = [];
-
-  constructor(private _setService : SetService, private _route : Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this._setService.getAll().subscribe(
-      data => this.setList = data
-    )
   }
-
 }

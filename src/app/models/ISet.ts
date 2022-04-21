@@ -1,3 +1,5 @@
+import { ITheme } from "./ITheme";
+
 export interface ISet {
     id: number,
     set_num: string,
@@ -12,6 +14,7 @@ export interface ISet {
     buy_loc: string,
     sale_date: Date,
     sale_price: number,
-    status:number  
+    status:number,
+    theme:ITheme,  
 
 }

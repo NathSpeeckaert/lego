@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { ISet } from 'src/app/models/ISet';
 import { IStatus } from 'src/app/models/IStatus';
 import { ITheme } from 'src/app/models/ITheme';
@@ -16,6 +17,7 @@ export class UpdateSetComponent implements OnInit {
   themes : ITheme[]=[];
   set!: ISet;
   status:IStatus[]=[];
+  theme:ITheme[]=[];
   
   constructor(private _fb: FormBuilder, 
               private _setService : SetService, 
@@ -50,15 +52,24 @@ export class UpdateSetComponent implements OnInit {
           }
         )
         this.setForm.patchValue(responseSet);
+
+      }
+    )
+    this._setService.getAllStatus().subscribe(
+      status => this.status = status
+    )
+    this._setService.getAllTheme().subscribe(
+      theme => {
+        this.set.theme = <ITheme>theme.find(t => t.id === this.set.theme_id)
       }
     )
   }
 
 updateSet(){
   if(this.setForm.valid){
-    let set = {... this.setForm.value, id:this.set.id, status:parseInt(this.setForm.value.status)};
+    let set = {... this.setForm.value, id:this.set.id, status:parseInt(this.setForm.value.status), theme_id:parseInt(this.setForm.value.theme_id)};
     this._setService.updateSet(set).subscribe(
-      setAdded => this._route.navigateByUrl('/set')
+      setAdded => this._route.navigateByUrl('/list-set')
 
     )
 

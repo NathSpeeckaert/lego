@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ISet } from 'src/app/models/ISet';
+import { SetService } from 'src/app/services/set.service';
 
 @Component({
   selector: 'app-create-set',
@@ -7,10 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSetComponent implements OnInit {
 
-  constructor() { }
+  creationForm:FormGroup;
+  setNum: string = '';
+  newSet: ISet;
+
+
+  constructor(private _setService : SetService,
+    private _activeRoute : ActivatedRoute,
+    private _route: Router) { }
 
   ngOnInit(): void {
+    
+
   }
+  importRequest(){
+    this._setService.getExternalSetBySetNum(this.setNum).subscribe(
+      importedSet =>
+      {
+        this.newSet = importedSet;
+       
+      }
+    )
+  }
+
+  addImport(){
+    
+
+  }
+
 
 }
 
@@ -29,3 +57,4 @@ export class CreateSetComponent implements OnInit {
 //   sale_price: [null,[]],
 //   status:[null,[]],
 // }
+

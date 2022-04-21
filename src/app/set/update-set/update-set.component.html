@@ -1,65 +1,74 @@
 <form [formGroup]="setForm" (ngSubmit)="updateSet()">
-    <!-- <div class="form-group mb-3 row">
-        <label class="col-sm-10" for="set_num">Num</label>
-        <input readonly class="form-control-plaintext" id="set_num" type="text" formControlName="set_num">
-    </div> -->
-    <div class="row">
-        <label for="set_num" class="col-1 col-form-label">Num</label>
-        <div class="col-1">
-          <input type="text" readonly class="form-control-plaintext" id="set_num" formControlName="set_num">
-        </div>
-      <!-- </div>
-    
 
-    <div class="mb-2 row"> -->
-        <label class="col-1 col-form-label"for="name">Nom</label>
-        <div class="col">
-         <input readonly class="col-12 col-form-label" id="name" type="text" formControlName="name">
+    <div class="row">
+        <div class="col-2">       
+            <a class="form-control" id="set_url" type="text" [href]="setForm.get('set_url')?.value" target="_blank">   <img readonly class="smallimg" [src]="setForm.get('set_img_url')?.value"></a>
+           </div>
+        <div class="col-10">
+            
+            <div>
+                <input readonly class="form-control-plaintext" type="string" [value]="set.theme.name">
+            </div>
+            <div *ngIf="set?.theme?.parent_id">
+                <input readonly class="form-control-plaintext" type="string" [value]="set.theme.parent.name">
+            </div>
+            <div>
+                <input type="text" readonly class="form-control-plaintext"  id="set_num" formControlName="set_num" >
+            </div>
+            <div>
+            <input readonly class="form-control-plaintext" id="name" type="text" formControlName="name">
+           </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <label for="year">Année</label>
+            <input readonly class="form-control" id="year" type="text" formControlName="year">
+        </div>
+        <div class="col-2">
+            <label for="lego_price">Prix Légo</label>
+            <input class="form-control" id="lego_price" type="number" formControlName="lego_price">
         </div>
     </div>    
-        
-    <div class="form-group">
-        <label for="year">Année</label>
-        <input readonly class="form-control" id="year" type="text" formControlName="year">
-        
-    </div>
-    <div class="form-group">
-        <label for="theme_id">Theme</label>
-        <input readonly class="form-control" id="theme_id" type="number" formControlName="theme_id">
-    </div>
-    <div class="form-group">       
-     <a class="form-control" id="set_url" type="text" [href]="setForm.get('set_url')?.value" target="_blank">   <img readonly class="smallimg" [src]="setForm.get('set_img_url')?.value"></a>
-    </div>
+    <div class="row mt-4">
+        <h3>Achat</h3>
    
-    <div class="form-group">
-        <label for="lego_price"></label>
-        <input class="form-control" id="lego_price" type="number" formControlName="lego_price">
-    </div>
-    <div class="form-group">
-        <label for="buy_loc"></label>
-        <input class="form-control" id="buy_loc" type="text" formControlName="buy_loc">
-    </div>
-    <div class="form-group">
-        <label for="buy_date"></label>
+        <div class="col-2">
+        <label for="buy_date">Date</label>
         <input class="form-control" id="buy_date" type="date" formControlName="buy_date">
     </div>
-    <div class="form-group">
-        <label for="buy_price"></label>
-        <input class="form-control" id="buy_price" type="number" formControlName="buy_price">
-    </div>
-    <div class="form-group">
-        <label for="sale_date"></label>
-        <input class="form-control" id="sale_date" type="date" formControlName="sale_date">
-    </div>
-    <div class="form-group">
-        <label for="sale_price"></label>
-        <input class="form-control" id="sale_price" type="number" formControlName="sale_price">
-    </div>
-    <div class="form-group">
-        <label for="status"></label>
-        <input class="form-control" id="status" type="text" formControlName="status">
+   
+    <div class="col-2">
+        <label for="buy_loc">Vendeur</label>
+        <input class="form-control" id="buy_loc" type="text" formControlName="buy_loc">
     </div>
 
-    <input class="btn btn-primary" type="submit" value="Modifier le set">
+    <div class="col-2">
+        <label for="buy_price">Prix</label>
+        <input class="form-control" id="buy_price" type="number" formControlName="buy_price">
+    </div>
+
+</div>
+    <div class="col-2">
+        <label for="status">Status</label>
+        <select class="form-select" id="status" type="text" formControlName="status">
+            <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
+         </select>   
+    </div>
+    <div  *ngIf="setForm.get('status')?.value==1" class="row mt-4">
+        <h3>Vente</h3>
+    <div class="col-2">
+        <label for="sale_date">Date</label>
+        <input class="form-control" id="sale_date" type="date" formControlName="sale_date">
+    </div>
+    <div class="col-2">
+        <label for="sale_price">Prix</label>
+        <input class="form-control" id="sale_price" type="number" formControlName="sale_price">
+    </div>
+</div>
+
+
+    <input class="btn btn-primary mt-4" type="submit" value="Modifier le set">
 
 </form>

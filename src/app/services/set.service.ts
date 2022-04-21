@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ISet } from '../models/ISet';
 import { IStatus } from '../models/IStatus';
+import { ITheme } from '../models/ITheme';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SetService {
 
-  private _APISET : string = 'http://localhost:3000/set/'
-  private _APITHEME : string = 'http://localhost:3000/theme/'
-  private _APISTATUS : string = 'http://localhost:3000/status'
+  private _APISET : string = 'http://localhost:3000/sets/'
+  private _APITHEME : string = 'http://localhost:3000/themes/'
+  private _APISTATUS : string = 'http://localhost:3000/statuses'
+  private _APIBRICKABLE : string ='https://rebrickable.com/api/v3/lego/sets/'
+  private key : string = '?key=0b7437b3085ab505d0925297137bd398'
 
 
   constructor(private _http:HttpClient) { }
@@ -30,9 +33,26 @@ export class SetService {
     return this._http.put<ISet>(this._APISET+set.id, set);
   }
 
+  getExternalSetBySetNum(setNum:string): Observable<ISet>{
+    return this._http.get<ISet>(this._APIBRICKABLE + setNum + this.key);
+  }
+
+
   //Status
 
   getAllStatus(): Observable<IStatus[]>{
     return this._http.get<IStatus[]>(this._APISTATUS);
+  }
+
+  //Theme
+  getAllTheme(): Observable<ITheme[]>{
+    return this._http.get<ITheme[]>(this._APITHEME).pipe(map(result => {
+      return result.map(t => {
+        if(t.parent_id) {
+          t.parent = <ITheme>result.find(x => x.id === t.parent_id);
+        }
+        return t;
+      })
+    }));
   }
 }

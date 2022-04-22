@@ -1,3 +1,4 @@
+<h3>Détail et modification</h3>
 <form [formGroup]="setForm" (ngSubmit)="updateSet()">
 
     <div class="row">
@@ -26,9 +27,11 @@
             <label for="year">Année</label>
             <input readonly class="form-control" id="year" type="text" formControlName="year">
         </div>
-        <div class="col-2">
-            <label for="lego_price">Prix Légo</label>
-            <input class="form-control" id="lego_price" type="number" formControlName="lego_price">
+        <div class="input-group mb-3 col-2">
+        <label for="lego_price">Prix Lego</label>
+
+         <input class="form-control" id="lego_price" type="number" formControlName="lego_price" aria-describedby="basic-addon1">
+         <span class="input-group-text" id="basic-addon1">€</span>
         </div>
     </div>    
     <div class="row mt-4">

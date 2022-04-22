@@ -37,6 +37,11 @@ export class SetService {
     return this._http.get<ISet>(this._APIBRICKABLE + setNum + this.key);
   }
 
+  addSet(setToImport: ISet): Observable<ISet>{
+    return this._http.post<ISet>(this._APISET, setToImport);
+
+  }
+
 
   //Status
 

@@ -1,27 +1,62 @@
-<p>create-set works!</p>
+<!-- <p>create-newSet works!</p> -->
+<h3>Ajouter un set</h3>
+<div class="col-md-3">
+  <div class="input-group">
+    <input type="text" id="setNum" class="form-control" [(ngModel)]="setNum"  [(ngModel)]="setNum" placeholder="numéro du set à importer" aria-describedby="button-addon2">
+    <button class="btn btn-primary" type="button" id="button-addon2" [disabled]="setNum=='' || setNum==null"  (click)="importRequest()">Importer</button>
+  </div>
+</div>
 
-
-<input class="form-control" id="setNum" type="text" [(ngModel)]="setNum" placeholder="numéro du set">
-<button type="button" [disabled]="setNum=='' || setNum==null"  (click)="importRequest()">Importer</button>
-
-
-{{newSet | json}}
-
-<div class="row">
-    <div>
-      <ul>
-        <li>{{newSet.set_num}}</li>
-        <li>{{newSet.name}}</li>
-        <li>{{newSet.year}}</li>
-        <li>{{newSet.theme_id}}</li>
-        <li>
-            <img class="miniimg"[src]="newSet.set_img_url" alt="">
-        </li>
-        <li>{{newSet.set_url}}</li>
-        
-      </ul>
-
+<form [formGroup]="creationForm" (ngSubmit)="addImport()" *ngIf="(newSet?.theme && setNum!='')" >
+  <div class="row">
+    <div class="col-2">       
+      <img readonly class="miniimg" [src]="newSet.set_img_url" formControlName="set_img_url">
     </div>
-  
-
+    <div class="col-10">
+      <div>
+        <input readonly class="form-control-plaintext" type="string" [value]="newSet.theme.name">
+      </div>
+      <div *ngIf="newSet?.theme?.parent_id">
+        <input readonly class="form-control-plaintext" type="string" [value]="newSet.theme.parent.name">
+      </div>
+      <div>
+        <input type="text" readonly class="form-control-plaintext"  id="set_num" formControlName="set_num" >
+      </div>
+        <div>
+            <input readonly class="form-control-plaintext" type="string" formControlName="name">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-2">
+        <label for="year">Année</label>
+        <input readonly class="form-control" id="year" type="text" formControlName="year" >
+      </div>
+    <div class="col-2">
+      <label for="lego_price">Prix Lego</label>
+      <input class="form-control" id="lego_price" type="number" formControlName="lego_price">
+    </div>
+  </div>    
+  <div class="row mt-4" style="border-top: 1px solid black">
+    <h3>Achat</h3>
+    <div class="col-2">
+      <label for="buy_date">Date</label>
+      <input class="form-control" id="buy_date" type="date" formControlName="buy_date">
+    </div>
+    <div class="col-2">
+      <label for="buy_loc">Vendeur</label>
+      <input class="form-control" id="buy_loc" type="text" formControlName="buy_loc">
+    </div>
+    <div class="col-2">
+      <label for="buy_price">Prix</label>
+      <input class="form-control" id="buy_price" type="number" formControlName="buy_price">
+    </div>
+  </div>
+  <div class="col-2">
+    <label for="status">Status</label>
+    <select class="form-select" id="status" type="text" formControlName="status">
+      <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
+    </select>   
+  <input class="btn btn-success mt-4" type="submit" value="Ajouter">
+    <button class="btn btn-danger mt-4" (click)="clearForm()">Effacer</button>
+  </div>
 

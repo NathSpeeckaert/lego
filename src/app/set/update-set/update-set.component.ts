@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ISet } from 'src/app/models/ISet';
@@ -14,7 +14,7 @@ import { SetService } from 'src/app/services/set.service';
 })
 export class UpdateSetComponent implements OnInit {
   setForm! : FormGroup;
-  themes : ITheme[]=[];
+  // themes : ITheme[]=[];
   set!: ISet;
   status:IStatus[]=[];
   theme:ITheme[]=[];
@@ -42,12 +42,12 @@ export class UpdateSetComponent implements OnInit {
             theme_id : [null,[]],
             set_img_url:[null,[]],
             set_url:[null,[]],
-            lego_price:[null,[]],     
-            buy_price:[null,[]],
-            buy_date: [null,[]],
-            buy_loc: [null,[]],
+            lego_price:[null,[Validators.min(0)]],     
+            buy_price:[null,[Validators.required, Validators.min(0)]],
+            buy_date: [null,[Validators.required]],
+            buy_loc: [null,[Validators.required, Validators.minLength(2)]],
             sale_date: [null,[]],
-            sale_price: [null,[]],
+            sale_price: [null,[Validators.min(0)]],
             status:[null,[]],
           }
         )

@@ -33,8 +33,12 @@
       </div>
     <div class="col-2">
       <label for="lego_price">Prix Lego</label>
-      <input class="form-control" id="lego_price" type="number" formControlName="lego_price">
+      <div class="input-group mb-3">
+      <input class="form-control" id="lego_price" aria-describedby="basic-addon1" type="number" formControlName="lego_price">
+      <span class="input-group-text" id="basic-addon1">€</span>
+      <!-- <div class="text-danger" *ngIf="creationForm.get('lego_price')?.errors?.['min']">Prix supérieur ou égal à 0</div> -->
     </div>
+  </div>
   </div>    
   <div class="row mt-4" style="border-top: 1px solid black">
     <h3>Achat</h3>
@@ -48,7 +52,11 @@
     </div>
     <div class="col-2">
       <label for="buy_price">Prix</label>
-      <input class="form-control" id="buy_price" type="number" formControlName="buy_price">
+      <div class="input-group mb-3">
+      <input class="form-control" aria-describedby="basic-addon1" id="buy_price" type="number" formControlName="buy_price">
+            <!-- <div class="text-danger" *ngIf="creationForm.get('buy_price')?.errors?.['min']">Prix supérieur ou égal à 0</div> -->
+            <span class="input-group-text" id="basic-addon1">€</span>
+          </div>
     </div>
   </div>
   <div class="col-2">

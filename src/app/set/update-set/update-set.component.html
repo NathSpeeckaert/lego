@@ -22,16 +22,19 @@
         </div>
     </div>
 
+
     <div class="row">
-        <div class="col-2">
+        <div class="col-md-3">
             <label for="year">Année</label>
             <input readonly class="form-control" id="year" type="text" formControlName="year">
         </div>
-        <div class="input-group mb-3 col-2">
-        <label for="lego_price">Prix Lego</label>
-
-         <input class="form-control" id="lego_price" type="number" formControlName="lego_price" aria-describedby="basic-addon1">
-         <span class="input-group-text" id="basic-addon1">€</span>
+        <div class="col-md-3">
+           
+                <label for="lego_price">Prix Lego</label>
+                <div class="input-group mb-3">
+                <input class="form-control" id="lego_price" type="number" formControlName="lego_price" aria-describedby="basic-addon1"><span class="input-group-text" id="basic-addon1">€</span>
+            </div>
+          
         </div>
     </div>    
     <div class="row mt-4">
@@ -49,8 +52,11 @@
 
     <div class="col-2">
         <label for="buy_price">Prix</label>
-        <input class="form-control" id="buy_price" type="number" formControlName="buy_price">
+        <div class="input-group mb-3">
+        <input class="form-control"aria-describedby="basic-addon1" id="buy_price" type="number" formControlName="buy_price">
+        <span class="input-group-text" id="basic-addon1">€</span>
     </div>
+</div>
 
 </div>
     <div class="col-2">

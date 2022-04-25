@@ -1,3 +1,7 @@
+$red:#e3000b;
+$blue: #0055bf;
+$yellow: #ffed00;
+
 .flex{
     display: flex;
     flex-direction: row;
@@ -8,8 +12,9 @@
 
 nav{
     width:300px;
-    border-right: 2px solid black;
+    border-right: 4px solid $red;
     padding : 2%;
+    height : 100vh;
 
 }
 
@@ -22,7 +27,7 @@ main{
 
 header{
     text-align: center;
-    border-bottom: 2px solid black;
+    border-bottom: 4px solid $blue;
 }
 h1{
     margin: 2%;

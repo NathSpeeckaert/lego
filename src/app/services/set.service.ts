@@ -10,9 +10,9 @@ import { ITheme } from '../models/ITheme';
 })
 export class SetService {
 
-  private _APISET : string = 'http://localhost:3000/sets/'
-  private _APITHEME : string = 'http://localhost:3000/themes/'
-  private _APISTATUS : string = 'http://localhost:3000/statuses'
+  private _APISET : string = 'http://localhost:4200/sets/'
+  private _APITHEME : string = 'https://rebrickable.com/api/v3/lego/themes/'
+  private _APISTATUS : string = 'http://localhost:4200/statuses'
   private _APIBRICKABLE : string ='https://rebrickable.com/api/v3/lego/sets/'
   private key : string = '?key=0b7437b3085ab505d0925297137bd398'
 
@@ -51,7 +51,7 @@ export class SetService {
 
   //Theme
   getAllTheme(): Observable<ITheme[]>{
-    return this._http.get<ITheme[]>(this._APITHEME).pipe(map(result => {
+    return this._http.get<ITheme[]>(this._APITHEME+this.key).pipe(map(result => {
       return result.map(t => {
         if(t.parent_id) {
           t.parent = <ITheme>result.find(x => x.id === t.parent_id);

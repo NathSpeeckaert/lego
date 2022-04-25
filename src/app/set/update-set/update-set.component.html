@@ -40,17 +40,17 @@
     <div class="row mt-4">
         <h3>Achat</h3>
    
-        <div class="col-2">
+        <div class="col-3">
         <label for="buy_date">Date</label>
         <input class="form-control" id="buy_date" type="date" formControlName="buy_date">
     </div>
    
-    <div class="col-2">
+    <div class="col-3">
         <label for="buy_loc">Vendeur</label>
         <input class="form-control" id="buy_loc" type="text" formControlName="buy_loc">
     </div>
 
-    <div class="col-2">
+    <div class="col-3">
         <label for="buy_price">Prix</label>
         <div class="input-group mb-3">
         <input class="form-control"aria-describedby="basic-addon1" id="buy_price" type="number" formControlName="buy_price">
@@ -59,7 +59,7 @@
 </div>
 
 </div>
-    <div class="col-2">
+    <div class="col-3">
         <label for="status">Status</label>
         <select class="form-select" id="status" type="text" formControlName="status">
             <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
@@ -73,8 +73,11 @@
     </div>
     <div class="col-2">
         <label for="sale_price">Prix</label>
-        <input class="form-control" id="sale_price" type="number" formControlName="sale_price">
+        <div class="input-group mb-3">
+        <input class="form-control" aria-describedby="basic-addon1" id="sale_price" type="number" formControlName="sale_price">
+        <span class="input-group-text" id="basic-addon1">€</span>
     </div>
+</div>
 </div>
 
 

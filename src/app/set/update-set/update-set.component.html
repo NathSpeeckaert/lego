@@ -1,4 +1,4 @@
-<h3>Détail et modification</h3>
+<h3>Détail et modification</h3><div *ngIf="set">
 <form [formGroup]="setForm" (ngSubmit)="updateSet()">
 
     <div class="row">
@@ -61,7 +61,7 @@
 </div>
     <div class="col-3">
         <label for="status">Status</label>
-        <select class="form-select" id="status" type="text" formControlName="status">
+        <select class="form-select" id="status" type="text" formControlName="status_id">
             <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
          </select>   
     </div>
@@ -84,3 +84,4 @@
     <input class="btn btn-primary mt-4" type="submit" value="Modifier le set">
 
 </form>
+</div>

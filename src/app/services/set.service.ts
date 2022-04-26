@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { ConnectableObservable, map, Observable } from 'rxjs';
 import { ISet } from '../models/ISet';
 import { IStatus } from '../models/IStatus';
 import { ITheme } from '../models/ITheme';
@@ -10,9 +10,9 @@ import { ITheme } from '../models/ITheme';
 })
 export class SetService {
 
-  private _APISET : string = 'http://localhost:4200/sets/'
+  private _APISET : string = 'http://localhost:8000/api/set/'
   private _APITHEME : string = 'https://rebrickable.com/api/v3/lego/themes/'
-  private _APISTATUS : string = 'http://localhost:4200/statuses'
+  private _APISTATUS : string = 'http://localhost:3000/statuses'
   private _APIBRICKABLE : string ='https://rebrickable.com/api/v3/lego/sets/'
   private key : string = '?key=0b7437b3085ab505d0925297137bd398'
 
@@ -51,10 +51,10 @@ export class SetService {
 
   //Theme
   getAllTheme(): Observable<ITheme[]>{
-    return this._http.get<ITheme[]>(this._APITHEME+this.key).pipe(map(result => {
-      return result.map(t => {
+    return this._http.get<any>(this._APITHEME+this.key+'&page_size=500').pipe(map(result => { console.log(result)
+      return result.results.map((t: ITheme) => {
         if(t.parent_id) {
-          t.parent = <ITheme>result.find(x => x.id === t.parent_id);
+          t.parent = <ITheme>result.results.find((x: ITheme) => x.id === t.parent_id);
         }
         return t;
       })

@@ -48,21 +48,26 @@ export class UpdateSetComponent implements OnInit {
             buy_loc: [null,[Validators.required, Validators.minLength(2)]],
             sale_date: [null,[]],
             sale_price: [null,[Validators.min(0)]],
-            status:[null,[]],
+            status_id:[null,[]],
           }
         )
-        this.setForm.patchValue(responseSet);
+        
+        this._setService.getAllStatus().subscribe(
+          status => {
+            this.status = status;
+            console.log(responseSet);
+            this.setForm.patchValue(responseSet);
+          }
+        )
+        this._setService.getAllTheme().subscribe(
+          theme => {
+            this.set.theme = theme.find((t:ITheme) => t.id === this.set.theme_id)
+          }
+        )
 
       }
     )
-    this._setService.getAllStatus().subscribe(
-      status => this.status = status
-    )
-    this._setService.getAllTheme().subscribe(
-      theme => {
-        this.set.theme = <ITheme>theme.find(t => t.id === this.set.theme_id)
-      }
-    )
+    
   }
 
 updateSet(){
@@ -77,6 +82,9 @@ updateSet(){
       this.setForm.markAllAsTouched();
     }
   }
+
 }
+
+
 
 

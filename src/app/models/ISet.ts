@@ -1,3 +1,4 @@
+import { IStatus } from "./IStatus";
 import { ITheme } from "./ITheme";
 
 export interface ISet {
@@ -14,7 +15,8 @@ export interface ISet {
     buy_loc: string,
     sale_date: Date,
     sale_price: number,
-    status:number,
+    status:IStatus,
+    status_id: number;
     theme:ITheme,  
 
 }

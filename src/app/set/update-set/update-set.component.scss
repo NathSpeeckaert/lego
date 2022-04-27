@@ -1,10 +1,28 @@
+$red:#e3000b;
+$blue: #0055bf;
+$yellow: #ffed00;
+$green: #007B28;
+
 .smallimg{
     height: 100px;
     width: auto;
 }
 
 
+h3{
 
-// a{
-//     margin: 2% 0%;
-// }
+color: $blue;
+text-decoration: underline;
+text-decoration-color: #e3000b;
+}
+
+label{
+    color:$green;
+
+}
+
+    form{
+        border: 4 px solid $yellow;
+        background-color: white;
+    }
+ 

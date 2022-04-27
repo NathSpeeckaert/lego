@@ -1,6 +1,17 @@
 $red:#e3000b;
 $blue: #0055bf;
 $yellow: #ffed00;
+$green: #007B28;
+
+*{
+    font-family: Helvetica, Arial, sans-serif;
+    
+
+}
+
+body{
+    background-image: linear-gradient($blue,$red, $green, $yellow);
+}
 
 .flex{
     display: flex;
@@ -11,24 +22,45 @@ $yellow: #ffed00;
 }
 
 nav{
+    background-color: white;
     width:300px;
-    border-right: 4px solid $red;
-    padding : 2%;
+    border: 4px solid $yellow;
+    padding : 1%;
     height : 100vh;
+    border-radius: 25px;
+    margin: 1%;
+
+
 
 }
 
 main{
+ 
     flex-grow: 1;
-    margin : 2%;
+    margin : 1%;
     height: 100vh;
+    background-color: white;
+    border: 4px solid $green;
+    border-radius: 25px;
+  
+    padding : 1%;
 
 }
 
 header{
+    padding: 1%;
+    background-color: white;
     text-align: center;
-    border-bottom: 4px solid $blue;
+    border: 4px solid $blue;
+    height: 75 px;
+    border-radius: 25px;
+    margin: 1%;
+    padding: 1%;
 }
 h1{
-    margin: 2%;
+    color: $blue;
+}
+.smallimg{
+    height: 75px;
+    width: auto;
 }

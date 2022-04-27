@@ -8,7 +8,7 @@
         <!-- <a class="btn btn-primary" routerLink="/create-set">Ajouter un set</a> -->
     </div>
     <div class="flex">
-        <table class="table table-striped table-hover">
+        <table class="table  table-hover">
             <thead>
                 <th scope="col">Num</th>
                 <th scope="col">Nom</th>
@@ -23,7 +23,7 @@
                 <td>{{set.name}}</td>
                 <td>{{set.theme?.name}}</td>
                 <td><img class="smallimg"[src]="set.set_img_url"></td>
-                <td><a routerLink="../update-set/{{set.id}}"><i class="fa-solid fa-file-lines"></i></a></td>
+                <td><a routerLink="../update-set/{{set.id}}"><i class=" fa fa-solid fa-file-lines"></i></a></td>
             </tr>
                
             </tbody>

@@ -1,3 +1,9 @@
+$red:#e3000b;
+$blue: #0055bf;
+$yellow: #ffed00; 
+
+
+
 .smallimg{
     height: 100px;
     width: auto;
@@ -8,4 +14,18 @@
 
 a{
     margin: 2% 0%;
+}
+
+table{
+    color: $blue;
+}
+
+h3{
+    color: $blue;
+    text-decoration: underline;
+    text-decoration-color: #e3000b;
+}
+
+.fa{
+    size: 1cm;
 }

@@ -62,10 +62,13 @@
     <div class="col-3">
         <label for="status">Status</label>
         <select class="form-select" id="status" type="text" formControlName="status_id">
-            <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
+            <option  [value]="1">Sold</option>
+            <option  [value]="2">Sealed</option>
+            <option  [value]="3">Built</option>
+            <option  [value]="4">Pending</option>
          </select>   
     </div>
-    <div  *ngIf="setForm.get('status')?.value==1" class="row mt-4">
+    <div  *ngIf="setForm.get('status_id')?.value==1" class="row mt-4">
         <h3>Vente</h3>
     <div class="col-2">
         <label for="sale_date">Date</label>

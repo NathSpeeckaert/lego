@@ -61,9 +61,12 @@
   </div>
   <div class="col-2">
     <label for="status">Status</label>
-    <select class="form-select" id="status" type="text" formControlName="status">
-      <option *ngFor="let state of status" value="{{state.id}}">{{state.name}}</option>
-    </select>   
+    <select class="form-select" id="status" type="text" formControlName="status_id">
+      <option  [value]="1">Sold</option>
+      <option  [value]="2">Sealed</option>
+      <option  [value]="3">Built</option>
+      <option  [value]="4">Pending</option>
+   </select>    
   <input class="btn btn-success mt-4" type="submit" value="Ajouter">
     <button class="btn btn-danger mt-4" (click)="clearForm()">Effacer</button>
   </div>

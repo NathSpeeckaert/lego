@@ -12,7 +12,7 @@ export class SetService {
 
   private _APISET : string = 'http://localhost:8000/api/set/'
   private _APITHEME : string = 'https://rebrickable.com/api/v3/lego/themes/'
-  private _APISTATUS : string = 'http://localhost:3000/statuses'
+
   private _APIBRICKABLE : string ='https://rebrickable.com/api/v3/lego/sets/'
   private key : string = '?key=0b7437b3085ab505d0925297137bd398'
 
@@ -43,11 +43,7 @@ export class SetService {
   }
 
 
-  //Status
 
-  getAllStatus(): Observable<IStatus[]>{
-    return this._http.get<IStatus[]>(this._APISTATUS);
-  }
 
   //Theme
   getAllTheme(): Observable<ITheme[]>{

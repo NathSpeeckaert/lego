@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SetForm } from 'src/app/forms/set.form';
 
 import { ISet } from 'src/app/models/ISet';
 import { IStatus } from 'src/app/models/IStatus';
@@ -34,31 +35,15 @@ export class UpdateSetComponent implements OnInit {
       responseSet =>
       {
         this.set = responseSet;
-        this.setForm = this._fb.group(
-          {
-            name : [null,[]],
-            set_num : [null,[]],
-            year:[null,[]],
-            theme_id : [null,[]],
-            set_img_url:[null,[]],
-            set_url:[null,[]],
-            lego_price:[null,[Validators.min(0)]],     
-            buy_price:[null,[Validators.required, Validators.min(0)]],
-            buy_date: [null,[Validators.required]],
-            buy_loc: [null,[Validators.required, Validators.minLength(2)]],
-            sale_date: [null,[]],
-            sale_price: [null,[Validators.min(0)]],
-            status_id:[null,[]],
-          }
-        )
+        this.setForm = this._fb.group({ 
+          ...SetForm, 
+          sale_date: [null,[]],
+          sale_price: [null,[Validators.min(0)]],
+        });
+
         
-        this._setService.getAllStatus().subscribe(
-          status => {
-            this.status = status;
-            console.log(responseSet);
-            this.setForm.patchValue(responseSet);
-          }
-        )
+        this.setForm.patchValue(responseSet);
+
         this._setService.getAllTheme().subscribe(
           theme => {
             this.set.theme = theme.find((t:ITheme) => t.id === this.set.theme_id)

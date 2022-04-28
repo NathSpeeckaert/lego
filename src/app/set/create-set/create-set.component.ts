@@ -48,8 +48,8 @@ export class CreateSetComponent implements OnInit {
   addImport(){
     let setToImport = {...this.creationForm.value};
     this._setService.addSet(setToImport).subscribe();
-    this.creationForm.reset();
-    this.setNum='';
+    console.log(setToImport);
+    //this.creationForm.reset();
   }
 
   clearForm(){

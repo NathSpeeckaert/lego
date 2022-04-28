@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ConnectableObservable, map, Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 import { ISet } from '../models/ISet';
 import { IStatus } from '../models/IStatus';
 import { ITheme } from '../models/ITheme';
@@ -10,7 +10,7 @@ import { ITheme } from '../models/ITheme';
 })
 export class SetService {
 
-  private _APISET : string = 'http://localhost:8000/api/set/'
+  private _APISET : string = 'http://localhost:8000/api/set'
   private _APITHEME : string = 'https://rebrickable.com/api/v3/lego/themes/'
 
   private _APIBRICKABLE : string ='https://rebrickable.com/api/v3/lego/sets/'
@@ -21,16 +21,24 @@ export class SetService {
 
 //Sets
 
-  getAllSets(): Observable<ISet[]>{
-    return this._http.get<ISet[]>(this._APISET);
+  getAllSets(parameters: any): Observable<ISet[]>{
+    let params = new HttpParams();
+    if(parameters.status) {
+      params = params.append('status', parameters.status);
+    }
+    if(parameters.search){
+      params = params.append('search', parameters.search)
+    }
+
+    return this._http.get<ISet[]>(this._APISET, {params});
   }
 
   getByid(id:number) : Observable<ISet>{
-    return this._http.get<ISet>(this._APISET+id)
+    return this._http.get<ISet>(this._APISET+ '/' + id)
   }
 
   updateSet(set:ISet): Observable<ISet>{
-    return this._http.put<ISet>(this._APISET+set.id, set);
+    return this._http.put<ISet>(this._APISET+ '/' +set.id, set);
   }
 
   getExternalSetBySetNum(setNum:string): Observable<ISet>{
@@ -39,8 +47,11 @@ export class SetService {
 
   addSet(setToImport: ISet): Observable<ISet>{
     return this._http.post<ISet>(this._APISET, setToImport);
-
   }
+
+  // getAllSetsByStatus(state:number):Observable<ISet[]>{
+  //   return this._http.get<ISet[]>(this._APISET+state);
+  // }
 
 
 

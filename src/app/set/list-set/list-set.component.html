@@ -1,10 +1,24 @@
 <div class="chapter">
     <h3>Les sets</h3>
     <div class="col-md-3">
-        <div class="input-group mb-3">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-            <input class="form-control" id="search" type="text" [(ngModel)]="search" placeholder="rechercher">
-        </div>
+        <form [formGroup]="fg" (ngSubmit)="submit()">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                <input class="form-control" id="search" type="text" placeholder="rechercher" formControlName="search">
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="status">Status</label>
+                <select class="form-select" id="status" type="text" formControlName="status">
+                    <option  [value]="null"> - </option>
+                    <option  [value]="1">Sold</option>
+                    <option  [value]="2">Sealed</option>
+                    <option  [value]="3">Built</option>
+                    <option  [value]="4">Pending</option>
+                </select>
+            </div>
+            <button>?</button>
+        </form>
         <!-- <a class="btn btn-primary" routerLink="/create-set">Ajouter un set</a> -->
     </div>
     <div class="flex">
@@ -15,10 +29,9 @@
                 <th scope="col">Thème</th>
                 <th scope="col">Image</th>
                 <th scope="col">Action</th>
-    
             </thead>
             <tbody>
-                <tr scope="row" *ngFor="let set of filteredList()">
+                <tr scope="row" *ngFor="let set of setList">
                 <td>{{set.set_num}}</td>
                 <td>{{set.name}}</td>
                 <td>{{set.theme?.name}}</td>

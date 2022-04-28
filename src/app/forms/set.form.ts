@@ -13,5 +13,5 @@ export const SetForm : any = {
     buy_loc: [null,[Validators.required,Validators.minLength(2)]],
     sale_date: [null,[]],
     sale_price: [0,[Validators.min(0)]],
-    status_id:[2,[]],
+    status:[2,[]],
 }

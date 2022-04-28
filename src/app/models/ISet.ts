@@ -15,8 +15,7 @@ export interface ISet {
     buy_loc: string,
     sale_date: Date,
     sale_price: number,
-    status:IStatus,
-    status_id: number;
+    status:number,
     theme:ITheme,  
 
 }

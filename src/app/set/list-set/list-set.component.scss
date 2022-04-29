@@ -18,6 +18,18 @@ a{
 
 table{
     color: $blue;
+    width:99%;
+}
+td, th{
+    width:25%;
+    text-align: center;
+    // border: 1px solid black;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #0055bf;
 }
 
 h3{
@@ -28,4 +40,16 @@ h3{
 
 .fa{
     size: 1cm;
+}
+
+
+::ng-deep {
+    .select2.select2-container.select2-container--default {
+        height: 37.97px;
+        .select2-selection.select2-selection--single {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
 }

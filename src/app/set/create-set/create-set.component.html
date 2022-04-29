@@ -10,7 +10,7 @@
 <form [formGroup]="creationForm" (ngSubmit)="addImport()" *ngIf="(newSet?.theme && setNum!='')" >
   <div class="row">
     <div class="col-2">       
-      <img readonly class="miniimg" [src]="newSet.set_img_url" formControlName="set_img_url">
+      <img readonly class="miniimg" [src]="newSet.set_img_url">
     </div>
     <div class="col-10">
       <div>
@@ -61,7 +61,7 @@
   </div>
   <div class="col-2">
     <label for="status">Status</label>
-    <select class="form-select" id="status" type="text" formControlName="status_id">
+    <select class="form-select" id="status" type="text" formControlName="status">
       <option  [value]="1">Sold</option>
       <option  [value]="2">Sealed</option>
       <option  [value]="3">Built</option>

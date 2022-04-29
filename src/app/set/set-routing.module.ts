@@ -5,6 +5,7 @@ import { ListSetComponent } from './list-set/list-set.component';
 import { SetComponent } from './set.component';
 import { UpdateSetComponent } from './update-set/update-set.component';
 
+
 const routes: Routes = [
   {path: "", component : SetComponent, children:[
     {path:"list-set", component:ListSetComponent},

@@ -36,7 +36,7 @@ export class CreateSetComponent implements OnInit {
       {
         this.creationForm.patchValue(importedSet);
         this.newSet = importedSet;
-        this._setService.getAllTheme().subscribe(
+        this._setService.themes$.subscribe(
           theme => {
             this.newSet.theme = <ITheme>theme.find(t => t.id === this.newSet.theme_id)
           }
@@ -46,10 +46,11 @@ export class CreateSetComponent implements OnInit {
   }
 
   addImport(){
+    if(this.creationForm.invalid) return;
     let setToImport = {...this.creationForm.value};
-    this._setService.addSet(setToImport).subscribe();
-    console.log(setToImport);
-    //this.creationForm.reset();
+    this._setService.addSet(setToImport).subscribe(() => {
+      this.clearForm();
+    });
   }
 
   clearForm(){

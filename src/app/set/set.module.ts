@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateSetComponent } from './update-set/update-set.component';
 import { ListSetComponent } from './list-set/list-set.component';
 import { CreateSetComponent } from './create-set/create-set.component';
+import { NgSelect2Module } from 'ng-select2';
 
 
 
@@ -25,6 +26,7 @@ import { CreateSetComponent } from './create-set/create-set.component';
     SetRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelect2Module
   ]
 })
 export class SetModule { }

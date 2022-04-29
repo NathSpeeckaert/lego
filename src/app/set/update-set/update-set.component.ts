@@ -44,7 +44,7 @@ export class UpdateSetComponent implements OnInit {
         
         this.setForm.patchValue(responseSet);
 
-        this._setService.getAllTheme().subscribe(
+        this._setService.themes$.subscribe(
           theme => {
             this.set.theme = theme.find((t:ITheme) => t.id === this.set.theme_id)
           }

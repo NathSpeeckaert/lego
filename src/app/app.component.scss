@@ -3,27 +3,33 @@ $blue: #0055bf;
 $yellow: #ffed00;
 $green: #007B28;
 
-*{
+* {
     font-family: Helvetica, Arial, sans-serif;
-    
-
 }
 
 .truc{
     //background-image: linear-gradient($blue,$red, $green, $yellow);
     background-image: url('../assets/images/bg_yellow.jpg');
-    //background-repeat: repeat;
+    background-repeat: repeat;
     background-position: center;
     background-size: 10%;
     padding-top:1%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .flex{
     display: flex;
     flex-direction: row;
     border: 1px, solid black;
+}
 
-    
+div.flex {
+    flex-grow:1;
+    overflow: hidden;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
 }
 
 nav{
@@ -31,7 +37,7 @@ nav{
     width:300px;
     border: 4px solid $red;
     padding : 1%;
-    height : 100vw;
+    height : 100%;
     border-radius: 25px;
     margin: 1%;
 
@@ -43,12 +49,18 @@ main{
  
     flex-grow: 1;
     margin : 1%;
-    height: 100vw;
+    height: 100%;
     background-color: white;
     border: 4px solid $green;
     border-radius: 25px;
     padding : 1%;
+    
 
+}
+
+main>div {
+    overflow-y: scroll;
+    height: 100%;
 }
 
 header{

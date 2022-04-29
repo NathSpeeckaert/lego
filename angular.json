@@ -55,12 +55,17 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/select2/dist/css/select2.min.css",
+              "node_modules/select2-theme-bootstrap5/dist/select2-bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             
 
 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/select2/dist/js/select2.min.js"
+            ]
           },
           "configurations": {
             "production": {

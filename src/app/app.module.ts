@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SetRoutingModule } from './set/set-routing.module';
 import { NavComponent } from './nav/nav.component';
-
+import { NgSelect2Module } from 'ng-select2';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     SetRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSelect2Module
   ],
   exports: [],
   providers: [],

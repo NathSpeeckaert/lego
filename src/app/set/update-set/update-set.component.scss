@@ -6,23 +6,30 @@ $green: #007B28;
 .smallimg{
     height: 100px;
     width: auto;
+    
 }
 
 
 h3{
-
 color: $blue;
-text-decoration: underline;
-text-decoration-color: #e3000b;
 }
 
 label{
-    color:$green;
-
+    color:$blue;
+    font-weight: bold;
 }
 
-    form{
-        border: 4 px solid $yellow;
-        background-color: white;
-    }
+#name{
+    font-weight: bold;
+    font-size: larger;
+    color: $blue;
+    
+}
+#set_url{
+    text-align: center;
+    border: none;
  
+}
+.detail2{
+    padding-bottom: 2%;
+}

@@ -51,7 +51,7 @@ export class ListSetComponent implements OnInit {
   }
 
   getSelectOptions() {
-    return this.theme?.map(t => (<Select2OptionData>{ text: t.name, id: t.id.toString(), theme:'bootstrap' }))
+    return this.theme?.map(t => (<Select2OptionData>{ text: t.name, id: t.id.toString() }))
   }
 
 

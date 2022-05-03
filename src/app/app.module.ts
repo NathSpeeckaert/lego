@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { SetRoutingModule } from './set/set-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { NgSelect2Module } from 'ng-select2';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    HomeComponent,
  
   ],
   imports: [

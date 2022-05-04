@@ -7,6 +7,7 @@ import { ITheme } from 'src/app/models/ITheme';
 import { SetService } from 'src/app/services/set.service';
 
 
+
 @Component({
   selector: 'app-list-set',
   templateUrl: './list-set.component.html',
@@ -54,6 +55,11 @@ export class ListSetComponent implements OnInit {
     return this.theme?.map(t => (<Select2OptionData>{ text: t.name, id: t.id.toString() }))
   }
 
+  clearFilters(){
+  this.setList = [];
+  window.location.reload();
+
+  }
 
 
   // filteredList(){

@@ -56,6 +56,7 @@ export class CreateSetComponent implements OnInit {
   clearForm(){
     this.creationForm.reset();
     this.setNum='';
+    this.newSet=null;
   }
 
 

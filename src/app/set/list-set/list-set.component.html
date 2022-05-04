@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa fa-search"></i></span>
-                    <input class="form-control" id="search" type="text" placeholder="" formControlName="search">
+                    <input class="form-control" id="search" type="text" placeholder="Recherche textuelle" formControlName="search">
                 </div>
                 </div>
 
@@ -26,15 +26,22 @@
             </div>
             <div class="col-12">
                 <div class="input-group mb-3">
-                    <span class="input-group-text">Theme</span>
+                    <span class="input-group-text">Thème</span>
                     <ng-select2 width="200px" [data]="getSelectOptions()" [placeholder]="'Sélectionner un thème'" formControlName="theme"></ng-select2>
                 </div>
                 
             </div>
             <div class="col-12">
                 <div class="input-group mb-3">
-                    <button class="btn btn-primary">Trier</button>
+                    <button class="btn btn-primary">Filtrer</button>
+
                 </div>
+            </div>    
+            <div class="col-12">
+                <div class="input-group mb-3">
+                     <button class="btn btn-success" (click)="clearFilters()">Réinitialiser</button>
+                </div>
+                
             </div>
                 <!-- <button>supprimer tous les filtres</button> -->
         </form>
@@ -47,7 +54,7 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Thème</th>
                 <th scope="col">Image</th>
-                <!-- <th scope="col">Action</th> -->
+
             </thead>
             <tbody>
                 <tr scope="row" *ngFor="let set of setList">
@@ -55,7 +62,7 @@
                 <td><a routerLink="../update-set/{{set.id}}">{{set.name}}</a></td>
                 <td><a routerLink="../update-set/{{set.id}}">{{set.theme?.name}}</a></td>
                 <td><a routerLink="../update-set/{{set.id}}"><img class="smallimg"[src]="set.set_img_url"></a></td>
-                <!-- <td><a class="btn btn-light" routerLink="../update-set/{{set.id}}">Détails</a></td> -->
+
             </tr>
                
             </tbody>

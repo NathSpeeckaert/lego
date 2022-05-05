@@ -10,14 +10,14 @@ import { HomeService } from '../services/home.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
- 
-   count:ICount[]=[];
+
+   count:ICount;
     constructor (private _homeService : HomeService){
 
     }
   ngOnInit(): void {
       this._homeService.getCount().subscribe(compte=>{this.count = compte})
-  }  
+  }
 
   }
 

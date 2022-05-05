@@ -10,7 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { NgSelect2Module } from 'ng-select2';
 import { HomeComponent } from './home/home.component';
 import { NgChartsModule } from 'ng2-charts';
-import { CountChartComponent } from './count-chart/count-chart.component';
+
 
 
 @NgModule({
@@ -18,8 +18,8 @@ import { CountChartComponent } from './count-chart/count-chart.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-    CountChartComponent,
- 
+
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,8 @@ import { CountChartComponent } from './count-chart/count-chart.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgSelect2Module,
-    NgChartsModule
+
+
   ],
   exports: [],
   providers: [],

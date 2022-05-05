@@ -7,15 +7,15 @@ import { ICount } from '../models/ICount';
   providedIn: 'root'
 })
 export class HomeService {
-  private _APICOUNT : string ='http://localhost/api/homeCount'
+  private _APICOUNT : string ='http://localhost:8000/api/homeCount';
 
 
-  
+
   constructor(private _http:HttpClient)
   { }
 
-  getCount():Observable <ICount[]>{
-    return this._http.get<ICount[]>(this._APICOUNT);
+  getCount():Observable <ICount>{
+    return this._http.get<ICount>(this._APICOUNT);
 
   }
 }
